@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="image_republish" pkg="image_transport" type="republish" args="compressed raw">
+        <remap from="in" to="/usb_cam/image_raw"/>
+        <remap from="out" to="/usb_cam/image_raw"/>
+    </node>
+
+    <node name="camera_info_publisher" pkg="camera_info_publisher" type="camera_info_publisher.py" args="$(find camera_info_publisher)/camera_info/C920_480p.yaml" output="screen"/>
+    
+    <arg name="max_distance" default="20.0"/>
+    <arg name="bibs_ratio" default="0.05"/>
+    <arg name="hat_ratio" default="0.02"/>
+    <arg name="head_ratio" default="0.02"/>
+    <arg name="tolerance" default="0.20"/>
+    <arg name="min_cluster_size" default="2"/>
+    <arg name="max_cluster_size" default="2000"/>
+
+    <arg name="man_bibs_color" default="green"/>
+    <arg name="woman_bibs_color" default="red"/>
+    <arg name="child_bibs_color" default="yellow"/>
+    <arg name="lower_red" default="0,100,80"/>
+    <arg name="upper_red" default="10,200,200"/>
+    <arg name="lower_blue" default="10,150,170"/>
+    <arg name="upper_blue" default="30,260,220"/>
+    <arg name="lower_yellow" default="22,40,100"/>
+    <arg name="upper_yellow" default="30,120,200"/>
+    <arg name="lower_green" default="90,50,80"/>
+    <arg name="upper_green" default="105,200,255"/>
+    <arg name="lower_pink" default="120,90,210"/>
+    <arg name="upper_pink" default="150,130,240"/>
+    <arg name="lower_white" default="5,5,245"/>
+    <arg name="upper_white" default="25,25,255"/>
+
+    <arg name="lower_face" default="0,0,110"/>
+    <arg name="upper_face" default="120,45,255"/>
+
+    <arg name="man_hat_color" default="green"/>
+    <arg name="woman_hat_color" default="red"/>
+    <arg name="child_hat_color" default="orange"/>
+    <arg name="lower_hgreen" default="90,50,80"/>
+    <arg name="upper_hgreen" default="105,200,255"/>
+    <arg name="lower_forest" default="120,90,210"/>
+    <arg name="upper_forest" default="150,130,240"/>
+    <arg name="lower_hred" default="0,100,80"/>
+    <arg name="upper_hred" default="10,200,200"/>
+    <arg name="lower_orange" default="9,100,100"/>
+    <arg name="upper_orange" default="15,220,255"/>
+    <node pkg="mannequin_detector" type="mannequin_detector" name="mannequin_detector" output="screen">
+        <param name="MAX_DISTANCE" value="$(arg max_distance)"/>
+        <param name="BIBS_RATIO" value="$(arg bibs_ratio)"/>
+        <param name="HAT_RATIO" value="$(arg hat_ratio)"/>
+        <param name="HEAD_RATIO" value="$(arg head_ratio)"/>
+        <param name="TOLERANCE" value="$(arg tolerance)"/>
+        <param name="MIN_CLUSTER_SIZE" value="$(arg min_cluster_size)"/>
+        <param name="MAX_CLUSTER_SIZE" value="$(arg max_cluster_size)"/>
+
+        <param name="MAN_BIBS_COLOR" value="$(arg man_bibs_color)"/>
+        <param name="WOMAN_BIBS_COLOR" value="$(arg woman_bibs_color)"/>
+        <param name="CHILD_BIBS_COLOR" value="$(arg child_bibs_color)"/>
+        <param name="LOWER_RED" value="$(arg lower_red)"/>
+        <param name="UPPER_RED" value="$(arg upper_red)"/>
+        <param name="LOWER_BLUE" value="$(arg lower_blue)"/>
+        <param name="UPPER_BLUE" value="$(arg upper_blue)"/>
+        <param name="LOWER_YELLOW" value="$(arg lower_yellow)"/>
+        <param name="UPPER_YELLOW" value="$(arg upper_yellow)"/>
+        <param name="LOWER_GREEN" value="$(arg lower_green)"/>
+        <param name="UPPER_GREEN" value="$(arg upper_green)"/>
+        <param name="LOWER_PINK" value="$(arg lower_pink)"/>
+        <param name="UPPER_PINK" value="$(arg upper_pink)"/>
+        <param name="LOWER_WHITE" value="$(arg lower_white)"/>
+        <param name="UPPER_WHITE" value="$(arg upper_white)"/>
+
+        <param name="LOWER_FACE" value="$(arg lower_face)"/>
+        <param name="UPPER_FACE" value="$(arg upper_face)"/>
+
+        <param name="MAN_HAT_COLOR" value="$(arg man_hat_color)"/>
+        <param name="WOMAN_HAT_COLOR" value="$(arg woman_hat_color)"/>
+        <param name="CHILD_HAT_COLOR" value="$(arg child_hat_color)"/>
+        <param name="LOWER_HGREEN" value="$(arg lower_green)"/>
+        <param name="UPPER_HGREEN" value="$(arg upper_green)"/>
+        <param name="LOWER_FOREST" value="$(arg lower_forest)"/>
+        <param name="UPPER_FOREST" value="$(arg upper_forest)"/>
+        <param name="LOWER_HRED" value="$(arg lower_hred)"/>
+        <param name="UPPER_HRED" value="$(arg upper_hred)"/>
+        <param name="LOWER_ORANGE" value="$(arg lower_orange)"/>
+        <param name="UPPER_ORANGE" value="$(arg upper_orange)"/>
+    </node>
+</launch>

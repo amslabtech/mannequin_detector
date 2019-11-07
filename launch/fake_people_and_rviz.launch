@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="bagfile" default="/home/amsl/bagfiles/cats/tsukuba_all.bag"/>
+    <arg name="rvizconfig" default="$(find mannequin_detector)/config/rviz.rviz" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="rosbag_play" pkg="rosbag" type="play" args="$(arg bagfile) --clock --pause -s 1510"/>
+    <!-- 1850 2350 3450 -->
+
+    <node name="fake_people_info_publisher" pkg="mannequin_detector" type="fake_people_info_publisher"/>
+</launch>

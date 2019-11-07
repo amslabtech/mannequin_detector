@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/melodic/include/**",
+        "/home/amsl/ros_catkin_ws/devel/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/amsl_navigation_managers/amsl_navigation_managers/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/CATS/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/complement/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/dynamic_cloud_detector/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/mannequin_detector/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/node_edge_localizer/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/node_edge_navigator/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/odom_gnss_ekf/include/**",
+        "/home/amsl/ros_catkin_ws/src/human_tracking_using_robots/Pangolin/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/road_recognizer/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/semantic_segmentation_with_point_cloud_integrator/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/state_lattice_planner/state_lattice_planner/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/stop_line_detector/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/state_lattice_planner/trajectory_generator/include/**",
+        "/home/amsl/ros_catkin_ws/src/rwrc2019/velodyne_height_map/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}
